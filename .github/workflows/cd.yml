@@ -43,5 +43,4 @@ jobs:
           export SONATYPE_USERNAME="${{ secrets.SONATYPE_USERNAME }}"
           export SONATYPE_PASSWORD="${{ secrets.SONATYPE_PASSWORD }}"
           export PGP_KEY_ID="${{ secrets.PGP_KEY_ID }}"
-          export PGP_PASSPHRASE="${{ secrets.PGP_PASSPHRASE }}"   # omit or set to "" if empty
           sbt +clean ci-release
