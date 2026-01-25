@@ -55,8 +55,8 @@ lazy val core = project
     name := "knot-core",
     commonSettings,
     publishSettings,
-    coverageMinimumStmtTotal   := 80,
-    coverageMinimumBranchTotal := 80,
+    coverageMinimumStmtTotal   := 90,
+    coverageMinimumBranchTotal := 90,
     coverageFailOnMinimum      := true,
     libraryDependencies ++= Seq(
       Dependencies.Cats.core
