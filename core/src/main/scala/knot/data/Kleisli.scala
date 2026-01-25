@@ -183,12 +183,12 @@ sealed abstract class KleisliInstances2 extends KleisliInstances3:
         fa.local(f)
 
 sealed abstract class KleisliInstances3 extends KleisliInstances4:
-  given [F[_]: Alternative, A]: Alternative[Kleisli[F, A, *]] =
+  given alternativeForKleisli[F[_]: Alternative, A]: Alternative[Kleisli[F, A, *]] =
     new KleisliAlternative[F, A]:
       def F: Alternative[F] = Alternative[F]
 
 sealed abstract class KleisliInstances4 extends KleisliInstances5:
-  given [F[_]: MonoidK, A]: MonoidK[Kleisli[F, A, *]] =
+  given monoidKForKleisli[F[_]: MonoidK, A]: MonoidK[Kleisli[F, A, *]] =
     new KleisliMonoidK[F, A]:
       def F: MonoidK[F] = MonoidK[F]
 
@@ -216,7 +216,7 @@ sealed abstract class KleisliInstances4 extends KleisliInstances5:
       def FB: Semigroup[F[B]] = Semigroup[F[B]]
 
 sealed abstract class KleisliInstances5 extends KleisliInstances6:
-  given [F[_]: SemigroupK, A]: SemigroupK[Kleisli[F, A, *]] =
+  given semigroupKForKleisli[F[_]: SemigroupK, A]: SemigroupK[Kleisli[F, A, *]] =
     new KleisliSemigroupK[F, A]:
       def F: SemigroupK[F] = SemigroupK[F]
   given flatMapForKleisli[F[_]: FlatMap, A]: FlatMap[Kleisli[F, A, *]] =
