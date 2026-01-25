@@ -4,7 +4,7 @@ import cats.Eq
 import cats.laws.discipline.*
 import cats.laws.discipline.eq.*
 import cats.laws.discipline.arbitrary.*
-import org.scalacheck.{Arbitrary, Cogen, Gen}
+import org.scalacheck.{Arbitrary, Cogen}
 import weaver.SimpleIOSuite
 import weaver.discipline.Discipline
 
@@ -17,11 +17,11 @@ object ShowSuite extends SimpleIOSuite with Discipline {
 
   checkAll("Show", ContravariantTests[Show].contravariant[MiniInt, Int, Boolean])
 
-  pureTest("contramap") {
+  pureTest("Show[Int]: contramap") {
     val fa = Show
       .instance[Int](_.toString)
       .contramap[Long](_.toInt)
-    expect.same(fa.run(1L), "1")
+    expect.eql(fa.run(1L), "1")
   }
 
   object ImplicitResolution:

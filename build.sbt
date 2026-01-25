@@ -55,16 +55,14 @@ lazy val core = project
     name := "knot-core",
     commonSettings,
     publishSettings,
-    coverageMinimumStmtTotal   := 80,
-    coverageMinimumBranchTotal := 80,
+    coverageMinimumStmtTotal   := 90,
+    coverageMinimumBranchTotal := 90,
     coverageFailOnMinimum      := true,
     libraryDependencies ++= Seq(
-      Dependencies.Cats.core,
-      Dependencies.FS2.core
+      Dependencies.Cats.core
     ) ++ Seq(
       Dependencies.Weaver.cats,
       Dependencies.Weaver.discipline,
-      Dependencies.Cats.laws,
-      Dependencies.Cats.effectLaws
+      Dependencies.Cats.laws
     ).map(_ % "test")
   )
