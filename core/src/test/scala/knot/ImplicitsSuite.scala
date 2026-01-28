@@ -5,7 +5,7 @@ import cats.implicits.*
 import knot.text.{Read, Show}
 import weaver.SimpleIOSuite
 
-object ImplicitsSpec extends SimpleIOSuite:
+object ImplicitsSuite extends SimpleIOSuite:
   pureTest("Int: show") {
     given Show[Int] =
       Show.instance(_.toString)
